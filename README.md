@@ -1,4 +1,4 @@
-                                                       ------ LEILOES TD.SAT -----
+                                            ------ LEILOES TD.SAT -----
 
 
 Apresentamos o projeto de software de leilões, uma solução inovadora desenvolvida utilizando tecnologias como MySQL, Apache NetBeans e GitHub. O objetivo principal deste projeto é oferecer uma plataforma confiável e eficiente para a realização de leilões online.
