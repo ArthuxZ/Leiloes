@@ -11,6 +11,7 @@
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 public class ProdutosDAO {
@@ -26,7 +27,7 @@ public class ProdutosDAO {
             
             String sql = "INSERT INTO produtos(nome, valor, status) VALUES('" + produto.getNome() + "','" + produto.getValor() + "','" + produto.getStatus() + "')";
             stmt.executeUpdate(sql);
-            
+            JOptionPane.showMessageDialog(null, "Sucesso em cadastramento de produto.");
         } catch (SQLException ex) {
            System.out.println( "Erro inserindo dados");
         }        
