@@ -33,8 +33,18 @@ public class ProdutosDAO {
         }        
     }
     
-    public ArrayList<ProdutosDTO> listarProdutos(){
-        
-        return listagem;
+    public static void venderProduto(int idd){
+        try {
+            conectaDAO conector = new conectaDAO();
+            conector.conectar();
+            Statement stmt = conectaDAO.conn.createStatement();
+            
+            String sql = "UPDATE produtos SET status = 'Vendido' WHERE id = " + idd;
+            stmt.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "Sucesso. Venda realizada!");
+            
+        } catch (SQLException sqle) {
+           JOptionPane.showMessageDialog(null, "Erro. Venda não realizada.");
+        } 
     }        
 }
