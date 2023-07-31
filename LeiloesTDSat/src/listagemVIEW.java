@@ -48,10 +48,7 @@ public class listagemVIEW extends javax.swing.JFrame {
 
         listaProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "ID", "Nome", "Valor", "Status"
@@ -140,11 +137,7 @@ public class listagemVIEW extends javax.swing.JFrame {
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
         String id = id_produto_venda.getText();
-        
-        ProdutosDAO produtosdao = new ProdutosDAO();
-        
-        //produtosdao.venderProduto(Integer.parseInt(id));
-        listarProdutos();
+        ProdutosDAO.venderProduto(Integer.parseInt(id));
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
@@ -204,8 +197,10 @@ public class listagemVIEW extends javax.swing.JFrame {
     public static javax.swing.JTable listaProdutos;
     // End of variables declaration//GEN-END:variables
 
-    private void listarProdutos(){
+    public static void listarProdutos(){
         try{
+        ((DefaultTableModel) (listagemVIEW.listaProdutos).getModel()).setRowCount(0);
+        
         conectaDAO conector = new conectaDAO();
         conector.conectar();
         DefaultTableModel model = (DefaultTableModel) listaProdutos.getModel();

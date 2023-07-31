@@ -43,6 +43,7 @@ public class ProdutosDAO {
             String sql = "UPDATE produtos SET status = 'Vendido' WHERE id = " + idd;
             stmt.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, "Sucesso. Venda realizada!");
+            listagemVIEW.listarProdutos();
             
         } catch (SQLException sqle) {
            JOptionPane.showMessageDialog(null, "Erro. Venda não realizada.");
