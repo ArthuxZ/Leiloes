@@ -201,7 +201,7 @@ public class listagemVIEW extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable listaProdutos;
+    public static javax.swing.JTable listaProdutos;
     // End of variables declaration//GEN-END:variables
 
     private void listarProdutos(){

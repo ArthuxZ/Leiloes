@@ -12,7 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
+import javax.swing.table.DefaultTableModel;
+import java.sql.ResultSet;
 
 public class ProdutosDAO {
     
@@ -47,4 +48,27 @@ public class ProdutosDAO {
            JOptionPane.showMessageDialog(null, "Erro. Venda não realizada.");
         } 
     }        
+    
+    public static void listarProdutosVendidos(){
+       
+        try{
+        ((DefaultTableModel) (listagemVIEW.listaProdutos).getModel()).setRowCount(0);
+        
+        conectaDAO conector = new conectaDAO();
+        conector.conectar();
+        DefaultTableModel model = (DefaultTableModel) (listagemVIEW.listaProdutos).getModel();
+        String sql = "SELECT*FROM produtos WHERE status = 'Vendido'";
+        Statement stmt = conectaDAO.conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                    String id = rs.getString("id");
+                    String nome = rs.getString("nome");
+                    String valor = rs.getString("valor");
+                    String status = rs.getString("status");
+                    model.addRow(new Object[]{id, nome, valor, status});
+            }   
+        } catch (SQLException ex) {
+            System.out.println( "Erro: " + ex.getMessage());
+        }  
+    }
 }
